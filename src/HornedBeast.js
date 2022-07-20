@@ -1,19 +1,23 @@
-import React from "react"
+import React from "react";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export default class HornedBeast extends React.Component {
     render() {
         return (
-            <div id={this.props._id} class="horned-beast">
-                <h1>
-                    {this.props.title}
-                </h1>
-                <img src={this.props.image_url} alt={this.props.keyword}/>
-                <p>
-                    {this.props.description}
-                </p>
-                {/* this.props.keyword
-                this.props.horns */}
-            </div>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img
+                    variant="top" src={this.props.image_url}
+                    style={{width: '150px'}}
+                />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                        {this.props.description}
+                    </Card.Text>
+                    <Button variant="primary">upvote</Button>
+                </Card.Body>
+            </Card>
         )
     }
 }
