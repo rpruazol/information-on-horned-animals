@@ -13,3 +13,27 @@
 ## Collaborators
 
 - N/A
+
+Feature #1: Display images
+Estimate of time needed to complete: 15min
+Start time: 10:10
+Finish time: 10:20
+Actual time needed to complete: 10min
+
+Feature #2: Allow users to vote for their favorite beast
+Estimate of time needed to complete: 45min
+Start time: 10:30
+Finish time: 11:10
+Actual time needed to complete: 40min
+
+Feature 3: Bootstrap
+Estimate of time needed to complete: 60min
+Start time: 11:25p
+Finish time: 12:30p
+Actual time needed to complete: 55min
+
+Stretch Goal: Add Interaction
+Estimate of time needed to complete: 15min
+Start time: 12:35
+Finish time: 12:50
+Actual time needed to complete: 15min
