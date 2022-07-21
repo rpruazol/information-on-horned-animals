@@ -16,6 +16,7 @@ export default class HornedBeast extends React.Component {
 	handleClickUpVote = () => {
 		const newNum = this.state.count++
 		this.setState({ state: newNum })
+		console.log(this.state.count)
 	}
 
 
