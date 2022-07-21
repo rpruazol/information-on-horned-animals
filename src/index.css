@@ -12,18 +12,6 @@ code {
     monospace;
 }
 
-.footer {
-  display: inline-block;
-  position: fixed;
-  font-size: 10px;
-  bottom: 0;
-}
-
-.horned-beast {
-  display: inline-block;
-  margin: 10px;
-}
-
-img {
-  width:250px;
+#heart:hover {
+  opacity: 0.3;
 }
