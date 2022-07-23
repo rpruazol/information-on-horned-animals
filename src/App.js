@@ -11,7 +11,16 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      clicked: false
+      clicked: false,
+      detail: {
+        "_id": 4,
+        "image_url": "https://images.unsplash.com/photo-1518946222227-364f22132616?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4836a6fca62e7dce9324346bacfde085&auto=format&fit=crop&w=2534&q=80",
+        "title": "UniLego",
+        "description": "Lego figurine dressed in a unicorn outfit",
+        "keyword": "unilego",
+        "horns": 1,
+        "count": 0
+      }
     }
 
   }
@@ -19,8 +28,11 @@ export default class App extends React.Component {
       this.setState({clicked: false})
     }
 
-    handleOpen = () => {
+    handleOpen = (e, count=0) => {
+      const output = {...e}
+      output.count = count
       this.setState({clicked: true})
+      this.setState({detail: output})
     }
 
     
@@ -31,7 +43,10 @@ export default class App extends React.Component {
       <div className="App">
         <Header />
         <Main handleOpen={this.handleOpen} />
-        <HornedBeastModal clicked={this.state.clicked} handleClose={this.handleClose}  
+        <HornedBeastModal 
+        clicked={this.state.clicked} 
+        handleClose={this.handleClose}
+        detail={this.state.detail}
         />
         <Footer />
       </div>
