@@ -23,17 +23,11 @@ export default class HornedBeast extends React.Component {
 
 	render() {
 		return (
-			<Card style={{ width: '20rem' }} className="m-1">
-					<Card.Img
-						variant="top" src={this.props.image_url}
-						style={{ width: '250px'}, {border: 'lightblue 1px dashed'}}
-						className="rounded mx-auto d-block mt-5"
-					/>
+			<Card style={{ width: '18rem' }} className="h-100">
+
 				<Card.Body>
 					<Card.Title>{this.props.title}</Card.Title>
-					<Card.Text>
-						{this.props.description}
-					</Card.Text>
+					<Card.Text>{this.props.description}</Card.Text>
 					<Card.Img
 						varient="top"
 						src='./heart.png'
@@ -45,6 +39,9 @@ export default class HornedBeast extends React.Component {
 						{this.state.count}
 					</Card.Title>
 				</Card.Body>
+				<Card.Img
+					src={this.props.image_url}
+				/>
 			</Card>
 		)
 	}
