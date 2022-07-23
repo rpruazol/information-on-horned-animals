@@ -48,9 +48,9 @@ Actual time needed to complete: 10min
 
 - Number and name of feature: 01: Display Modal
 - Estimate of time needed to complete: 1 hr
-- Start time: _____
-- Finish time: _____
-- Actual time needed to complete: _____
+- Start time: 15:05 ET
+- Finish time: 18:00 ET
+- Actual time needed to complete: 3 hrs
 ---
 - Number and name of feature: 02: Fuzzy Search
 - Estimate of time needed to complete: 1 hr
