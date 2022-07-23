@@ -1,8 +1,5 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 export default class HornedBeast extends React.Component {
 	constructor(props) {
@@ -18,22 +15,14 @@ export default class HornedBeast extends React.Component {
 		this.setState({ state: newNum })
 		console.log(this.state.count)
 	}
-
-
-
+  
 	render() {
 		return (
-			<Card style={{ width: '20rem' }} className="m-1">
-					<Card.Img
-						variant="top" src={this.props.image_url}
-						style={{ width: '250px'}, {border: 'lightblue 1px dashed'}}
-						className="rounded mx-auto d-block mt-5"
-					/>
+			<Card id={this.state.key} style={{ width: '18rem' }} className="h-100">
+
 				<Card.Body>
 					<Card.Title>{this.props.title}</Card.Title>
-					<Card.Text>
-						{this.props.description}
-					</Card.Text>
+					<Card.Text>{this.props.description}</Card.Text>
 					<Card.Img
 						varient="top"
 						src='./heart.png'
@@ -45,6 +34,10 @@ export default class HornedBeast extends React.Component {
 						{this.state.count}
 					</Card.Title>
 				</Card.Body>
+				<Card.Img
+					onClick={() => this.props.handleOpen(this.props, this.state.count)}
+					src={this.props.image_url}
+				/>
 			</Card>
 		)
 	}
