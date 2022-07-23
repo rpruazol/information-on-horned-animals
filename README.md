@@ -54,8 +54,8 @@ Actual time needed to complete: 10min
 ---
 - Number and name of feature: 02: Fuzzy Search
 - Estimate of time needed to complete: 1 hr
-- Start time: _____
-- Finish time: _____
-- Actual time needed to complete: _____
+- Start time: 18:00 ET
+- Finish time: 19:13 ET
+- Actual time needed to complete: 1 hr 13
 
 </details>
