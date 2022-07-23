@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import HornedBeastModal from "./HornedBeastModal";
 
 export default class HornedBeast extends React.Component {
 	constructor(props) {
@@ -18,9 +19,7 @@ export default class HornedBeast extends React.Component {
 		this.setState({ state: newNum })
 		console.log(this.state.count)
 	}
-
-
-
+  
 	render() {
 		return (
 			<Card style={{ width: '18rem' }} className="h-100">
@@ -40,6 +39,7 @@ export default class HornedBeast extends React.Component {
 					</Card.Title>
 				</Card.Body>
 				<Card.Img
+					onClick={this.props.handleOpen}
 					src={this.props.image_url}
 				/>
 			</Card>

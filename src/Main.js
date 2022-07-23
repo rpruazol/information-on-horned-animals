@@ -9,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 
 export default class Main extends React.Component {
 	render() {
-
 		const renderedHornArray = hornedArray.map(value => {
 			return (
 				<Col>
@@ -21,6 +20,7 @@ export default class Main extends React.Component {
 						keyword={value.keyword}
 						horns={value.horns}
 						key={value._id}
+						handleOpen={this.props.handleOpen}
 					/>
 				</Col>
 			)
