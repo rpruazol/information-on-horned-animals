@@ -1,6 +1,6 @@
 import React from "react";
 import HornedBeast from './HornedBeast'
-import hornedArray from './data.json'
+// import hornedArray from './data.json'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -12,12 +12,36 @@ export default class Main extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			query: null
+			query: null,
+			hornedArray: [],
+			isLoaded: false
 		}
 	}
+
+	componentDidMount() {
+		fetch("http://localhost:3000/")
+			.then(res => {
+				return res.json()
+			})
+			.then(result => {
+				console.log(result)
+				this.setState({
+					isLoaded: true,
+					hornedArray: result
+				});
+			},
+				(error) => {
+					this.setState({
+						isLoaded: true,
+						error
+					});
+				}
+			)
+	}
+
 	filterResults = (query) => {
 		const re = new RegExp(query, 'i')
-		const outputArray = hornedArray.filter(obj => {
+		const outputArray = this.state.hornedArray.filter(obj => {
 			return re.test(obj.title) || re.test(obj.keyword)
 		})
 		this.setState({ query: outputArray })
@@ -25,14 +49,20 @@ export default class Main extends React.Component {
 
 	}
 	render() {
-		const outputArray = this.state.query === null ? hornedArray : this.state.query
-		return (
-			<Container>
-				<SearchForm
-					filterResults={this.filterResults}
-				/>
-				<Row xs={1} sm={2} md={3} lg={4} className="g-4">
-					{outputArray.map(value => {
+		const { error, isLoaded, hornedArray } = this.state;
+		if (error) {
+			return <div>Error: {error.message}</div>
+		} else if (!isLoaded) {
+			return <div>Please wait...</div>
+		} else {
+			const outputArray = this.state.query === null ? hornedArray : this.state.query
+			return (
+				<Container>
+					<SearchForm
+						filterResults={this.filterResults}
+					/>
+					<Row xs={1} sm={2} md={3} lg={4} className="g-4">
+						{outputArray.map(value => {
 							return (
 								<Col>
 									<HornedBeast
@@ -48,10 +78,11 @@ export default class Main extends React.Component {
 								</Col>
 							)
 						})
-					}
-				</Row>
-			</Container>
+						}
+					</Row>
+				</Container>
 
-		)
+			)
+		}
 	}
 }
