@@ -59,3 +59,7 @@ Actual time needed to complete: 10min
 - Actual time needed to complete: 1 hr 13
 
 </details>
+
+
+Using the Form component of react-bootstrap, build a drop down menu so that the user can choose to filter by number of horns.
+When the user chooses one of the options, the correct images should be displayed.
