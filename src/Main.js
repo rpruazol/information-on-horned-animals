@@ -16,16 +16,10 @@ export default class Main extends React.Component {
 		}
 	}
 	filterResults = (query) => {
-		console.log((query))
 		const re = query.type === "titleOrKeyword" ? new RegExp(query.query, 'i') : new RegExp('null');
-		console.log(re);
 		const outputArray = hornedArray.filter(obj => {
-			console.log(re.test(obj.keyword))
-			console.log(re.test(obj.title))
-			console.log(obj.horns === query.query)
 			return re.test(obj.title) || re.test(obj.keyword) || obj.horns === query.query
 		})
-		console.log(outputArray)
 		this.setState({ query: outputArray })
 
 
