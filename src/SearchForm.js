@@ -7,13 +7,14 @@ export default class SearchForm extends React.Component {
         super(props)
 
         this.state = {
-            query: null
+            query: null,
+            type: 'titleOrKeyword'
         }
     }
 
     getQuery = (e) => {
-        this.setState({query: e.target.value}, () => {
-            this.props.filterResults(this.state.query)
+        this.setState({ query: e.target.value }, () => {
+            this.props.filterResults(this.state);
         })
     }
     render() {

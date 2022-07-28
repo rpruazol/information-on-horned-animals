@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import SearchForm from './SearchForm';
-
+import FilterForm from './FilterForm';
 
 
 export default class Main extends React.Component {
@@ -16,9 +16,9 @@ export default class Main extends React.Component {
 		}
 	}
 	filterResults = (query) => {
-		const re = new RegExp(query, 'i')
+		const re = query.type === "titleOrKeyword" ? new RegExp(query.query, 'i') : new RegExp('null');
 		const outputArray = hornedArray.filter(obj => {
-			return re.test(obj.title) || re.test(obj.keyword)
+			return re.test(obj.title) || re.test(obj.keyword) || obj.horns === query.query
 		})
 		this.setState({ query: outputArray })
 
@@ -29,6 +29,10 @@ export default class Main extends React.Component {
 		return (
 			<Container>
 				<SearchForm
+					filterResults={this.filterResults}
+				/>
+				<FilterForm
+					hornNumberArray={hornedArray.map(value => value.horns).filter((num, idx) => hornedArray.map(value => value.horns).indexOf(num) === idx)}
 					filterResults={this.filterResults}
 				/>
 				<Row xs={1} sm={2} md={3} lg={4} className="g-4">

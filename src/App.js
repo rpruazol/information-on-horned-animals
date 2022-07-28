@@ -12,15 +12,8 @@ export default class App extends React.Component {
 
     this.state = {
       clicked: false,
-      detail: {
-        "_id": 4,
-        "image_url": "https://images.unsplash.com/photo-1518946222227-364f22132616?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4836a6fca62e7dce9324346bacfde085&auto=format&fit=crop&w=2534&q=80",
-        "title": "UniLego",
-        "description": "Lego figurine dressed in a unicorn outfit",
-        "keyword": "unilego",
-        "horns": 1,
-        "count": 0
-      }
+      detail: {}
+      
     }
 
   }
@@ -37,7 +30,6 @@ export default class App extends React.Component {
 
     
     render() {
-    console.log(this.state)
     return (
       
       <div className="App">
